@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Inter Variable', sans-serif;
+}
+
+.bgLinear {
+	@apply bg-linear-90 from-[#F3D444] to-[#FFD200];
+}
+.bgHardYellow {
+	@apply bg-[#FFD200];
+}
+
+.textHardYellow {
+	@apply text-[#FFD200];
+}
+.textSoftYellow {
+	@apply text-[#F3D444];
+}
