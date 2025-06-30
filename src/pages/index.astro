@@ -1,23 +1,23 @@
 ---
-import Hero from '../components/Hero.astro';
-import Testimonios from '../components/Testimonios.astro';
-import Layout from '../layouts/Layout.astro';
-import salesBg from '../assets/images/sales-mastery-background.webp';
-import { Image } from 'astro:assets';
-import Pasos from '../components/Pasos.astro';
+import Hero from "../components/Hero.astro";
+import Testimonios from "../components/Testimonios.astro";
+import Layout from "../layouts/Layout.astro";
+import salesBg from "../assets/images/sales-mastery-background.webp";
+import { Image } from "astro:assets";
+import Pasos from "../components/Pasos.astro";
 ---
 
 <Layout>
-	<Image
-		src="/images/sales-mastery-background.webp"
-		width={100}
-		height={100}
-		alt="Sales Mastery Background"
-		class="absolute top-0 w-screen h-auto -z-10"
-		format="webp"
-		priority
-	/>
-	<Hero />
-	<Testimonios />
-	<Pasos />
+  <Image
+    src="/images/sales-mastery-background.webp"
+    width={100}
+    height={100}
+    alt="Sales Mastery Background"
+    class="absolute top-0 w-screen h-auto -z-10"
+    format="webp"
+    priority
+  />
+  <Hero />
+  <Testimonios />
+  <Pasos />
 </Layout>

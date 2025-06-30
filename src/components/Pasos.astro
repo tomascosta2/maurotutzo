@@ -1,32 +1,367 @@
-<section class="pt-[100px]">
-	<div class="max-w-[900px] mx-auto">
-		<h2
-			class="max-w-[620px] mx-auto -mt-12 leading-[110%] mb-4 font-extrabold text-white text-[35px] text-center"
-		>
-			Nuestro método de <span class="textHardYellow">3 pasos</span> para vivir
-			de cerrar ventas online
-		</h2>
-		<p
-			class="max-w-[280px] text-[16px] mx-auto text-center text-white/80 leading-[120%]"
-		>
-			El paso a paso que crea casos de éxito todos los meses.
-		</p>
-		<div class="grid grid-cols-3 mt-8">
-			<div class="bg-[#111] p-[2px] overflow-clip relative rounded-lg">
-				<div
-					class="bgHardYellow -top-[50px] blur-2xl left-[calc(50%-50px)] size-[100px] rounded-full absolute"
-				>
-				</div>
-				<div class="bg-[#111] relative px-6 pt-[50px] rounded-[6px]">
-					<div class="shadow-[0_10px_20px_#FFFFFF30] size-[47px] mx-auto rounded-full flex items-center justify-center text-[22px] text-white font-extrabold bg-linear-0 to-[#F3D444] from-[#FFD200]">
-						1
-					</div>
-					<h3 class="text-white font-bold text-center text-[18px] leading-[110%] mt-4">Te enseñamos a cerrar ventas por videollamada</h3>
-					<div class="bg-linear-0 from-[#8D7B27] mt-8 to-[#F3D444] p-4 rounded-tl-[10px] rounded-tr-[10px]">
+---
+import PasosCard from "./ui/PasosCard.astro";
+import ProfileImage from "/public/svg/profile.svg";
+import SalesLogo from "/public/svg/sales-logo.svg";
+import Money from "/public/svg/money.svg";
+import AgendaIcon from "/public/svg/agenda.svg";
+import BinanceIcon from "/public/svg/binance.svg";
+import StripeIcon from "/public/svg/stripe.svg";
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+const data = [
+  {
+    title: "Te enseñamos a cerrar ventas por videollamada",
+    image: "/images/pasos/paso-1.png",
+    alt: "Paso 1",
+    number: 1,
+    bg: "bg-linear-0 from-[#8D7B27] mt-8 to-[#F3D444] p-4 rounded-tl-[10px] rounded-tr-[10px]",
+    bgClass:
+      "bg-linear-0 from-[#8D7B27] mt-8 to-[#F3D444] p-4 rounded-tl-[10px] rounded-tr-[10px]",
+  },
+];
+---
+
+<section class="pt-[100px]">
+  <div class="max-w-[900px] mx-auto">
+    <h2
+      class="max-w-[620px] mx-auto -mt-12 leading-[110%] mb-4 font-extrabold text-white text-[35px] text-center"
+    >
+      Nuestro método de <span class="textHardYellow">3 pasos</span> para vivir de
+      cerrar ventas online
+    </h2>
+    <p
+      class="max-w-[280px] text-[16px] mx-auto text-center text-white/80 leading-[120%]"
+    >
+      El paso a paso que crea casos de éxito todos los meses.
+    </p>
+
+    <div class="grid grid-cols-3 gap-6 mt-8">
+      <PasosCard
+        title="Te enseñamos a cerrar ventas por videollamada"
+        number={1}
+      >
+        <div
+          class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-6 relative"
+        >
+          <div class="absolute z-[20] inset-0 flex items-center justify-center">
+            <div
+              class="w-[150px] h-[150px] rounded-full bg-[rgba(255,210,0,1)] blur-[86.85px]"
+            >
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 items-center justify-center relative z-10"
+          >
+            {
+              [<ProfileImage />, <SalesLogo />, <Money />].map((item) => (
+                <div class="w-[38px] h-[38px] rounded-full border border-white shadow-drop grid place-items-center bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)] z-10">
+                  {item}
+                </div>
+              ))
+            }
+            <div
+              class="golden-pulse absolute w-[100px] h-[2px] bg-gradient-to-r from-[#F3D444] via-[#FFD200] to-[#F3D444] rotate-90"
+            >
+            </div>
+          </div>
+        </div>
+      </PasosCard>
+      <!-- 2 -->
+      <PasosCard title="Te conectamos con empresas ya posicionadas" number={2}>
+        <div
+          class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-6 relative h-full overflow-hidden"
+        >
+          <div class="absolute inset-0 flex flex-col bg-black/50 blur-[1px]">
+            {
+              Array.from({ length: 8 }).map((_, rowIndex) => (
+                <div
+                  class={`bg-row ${rowIndex % 2 === 0 ? "row-even" : "row-odd"}`}>
+                  {Array.from({ length: 10 }).map(() => (
+                    <div class="bg-box" />
+                  ))}
+                  {/* Add duplicate boxes for seamless animation */}
+                  {Array.from({ length: 10 }).map(() => (
+                    <div class="bg-box" />
+                  ))}
+                </div>
+              ))
+            }
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-[150px] h-[150px] rounded-full bg-[rgba(255,210,0,0.7)] blur-[86.85px]"
+            >
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col gap-4 items-center justify-center relative z-10 h-full"
+          >
+            <div
+              class="w-[47px] h-[47px] rounded-full shadow-drop grid place-items-center z-10 relative bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)]"
+            >
+              <SalesLogo />
+            </div>
+          </div>
+        </div>
+      </PasosCard>
+      <!-- 3 -->
+      <PasosCard
+        title="Trabajas desde tu casa y logras libertad economica"
+        number={3}
+      >
+        <div
+          class="h-full mt-6 rounded-t-xl bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] overflow-clip pt-[13px] px-[14px]"
+        >
+          <div
+            class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] pt-[14px] px-[14px] rounded-tl-[10px] rounded-tr-[10px] relative h-full overflow-hidden"
+          >
+            <div class="absolute inset-0 flex flex-col bg-black/50 blur-[1px]">
+              <div></div>
+            </div>
+
+            <div
+              class="absolute inset-0 flex items-center justify-center z-[999]"
+            >
+              <div
+                class="w-[150px] h-[150px] rounded-full bg-[rgba(255,210,0,1)] blur-[86.85px]"
+              >
+              </div>
+            </div>
+
+            <div
+              class="flex flex-col gap-4 items-center justify-center relative z-10 h-full"
+            >
+              <div class="w-full h-full">
+                <div
+                  class="w-full bg-[rgba(17,17,17,0.5)] rounded-[6.19px] leading-[110%] border border-[rgba(255,210,0,1)] text-white text-[10px] flex items-center p-2 py-3"
+                >
+                  <p>Resultados de nuestros closers</p>
+                </div>
+                <div
+                  class="notifications-container h-[100px] overflow-hidden relative"
+                >
+                  <div
+                    class="notifications-scroll flex flex-col gap-1 w-full py-1"
+                  >
+                    <div class="w-full">
+                      <div
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                      >
+                        <AgendaIcon />
+                        <p>Nueva agenda</p>
+                      </div>
+                    </div>
+                    <div class="w-full">
+                      <div
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                      >
+                        <BinanceIcon />
+                        <p>Nueva agenda</p>
+                      </div>
+                    </div>
+                    <div class="w-full">
+                      <div
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                      >
+                        <AgendaIcon />
+                        <p>Pago recibido - Binance</p>
+                      </div>
+                    </div>
+                    <div class="w-full">
+                      <div
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                      >
+                        <StripeIcon />
+                        <p>Pago recibido - Stripe</p>
+                      </div>
+                    </div>
+                    <!-- Duplicate items for seamless scrolling -->
+                    <div class="w-full">
+                      <div
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                      >
+                        <AgendaIcon />
+                        <p>Nueva agenda</p>
+                      </div>
+                    </div>
+                    <div class="w-full">
+                      <div
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                      >
+                        <BinanceIcon />
+                        <p>Nueva agenda</p>
+                      </div>
+                    </div>
+                    <div class="w-full">
+                      <div
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                      >
+                        <AgendaIcon />
+                        <p>Pago recibido - Binance</p>
+                      </div>
+                    </div>
+                    <div class="w-full">
+                      <div
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                      >
+                        <StripeIcon />
+                        <p>Pago recibido - Stripe</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </PasosCard>
+    </div>
+  </div>
+
+  <style>
+    .animated-background {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      padding: 0;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .bg-row {
+      display: flex;
+      height: 100%;
+      position: relative;
+      align-items: center;
+      width: 700%;
+    }
+
+    .bg-box {
+      width: 80px;
+      height: 20px;
+      margin: 0 5px;
+      background-color: rgba(17, 17, 17, 0.5);
+      border-radius: 10px;
+      border: 2px solid rgba(255, 210, 0, 0.3);
+      opacity: 0.6;
+    }
+
+    .golden-pulse {
+      box-shadow: 0 0 10px 2px rgba(243, 212, 68, 0.7);
+    }
+
+    .notifications-container {
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+      );
+    }
+  </style>
+
+  <script>
+    import gsap from "gsap";
+
+    // Wait for the page to load
+    window.addEventListener("load", function () {
+      if (typeof gsap !== "undefined") {
+        console.log("GSAP available globally");
+
+        // Select all even rows
+        const evenRows = document.querySelectorAll(".row-even");
+        // Select all odd rows
+        const oddRows = document.querySelectorAll(".row-odd");
+
+        console.log("Found even rows:", evenRows.length);
+        console.log("Found odd rows:", oddRows.length);
+
+        // Animate even rows from right to left
+        evenRows.forEach((row) => {
+          gsap.fromTo(
+            row,
+            { x: "0%" },
+            {
+              x: "-50%",
+              repeat: -1,
+              duration: 15,
+              ease: "linear",
+            }
+          );
+        });
+
+        // Animate odd rows from left to right
+        oddRows.forEach((row) => {
+          gsap.fromTo(
+            row,
+            { x: "-50%" },
+            {
+              x: "0%",
+              repeat: -1,
+              duration: 15,
+              ease: "linear",
+            }
+          );
+        });
+
+        // Golden pulse animation for the electric impulse effect
+        const goldenPulse = document.querySelectorAll(".golden-pulse");
+        goldenPulse.forEach((pulse) => {
+          // Create the pulsing effect
+          gsap
+            .timeline({ repeat: -1 })
+            .to(pulse, {
+              boxShadow: "0 0 15px 4px rgba(243, 212, 68, 1)",
+              opacity: 1,
+              duration: 1,
+              ease: "power2.inOut",
+            })
+            .to(pulse, {
+              boxShadow: "0 0 5px 1px rgba(243, 212, 68, 0.5)",
+              opacity: 0.7,
+              duration: 2,
+              ease: "power2.inOut",
+            });
+
+          // Create the electric impulse effect
+          gsap.timeline({ repeat: -1, repeatDelay: 1.5 }).fromTo(
+            pulse,
+            { backgroundPosition: "0% 50%" },
+            {
+              backgroundPosition: "100% 50%",
+              duration: 1,
+              ease: "power3.inOut",
+            }
+          );
+        });
+
+        // Vertical scrolling animation for notifications
+        const notificationsScroll = document.querySelectorAll(
+          ".notifications-scroll"
+        );
+        notificationsScroll.forEach((scroll) => {
+          const scrollHeight = scroll.scrollHeight || 0;
+          const parentElement = scroll.parentElement;
+          const containerHeight = parentElement
+            ? parentElement.clientHeight
+            : 0;
+
+          gsap.to(scroll, {
+            y: -(scrollHeight / 2), // Only scroll half way since we duplicated the items
+            duration: 8, // Slow scrolling speed
+            ease: "none",
+            repeat: -1,
+            repeatDelay: 0.5,
+            onRepeat: () => {
+              gsap.set(scroll, { y: 0 }); // Reset position for seamless loop
+            },
+          });
+        });
+
+        console.log("Animations started");
+      } else {
+        console.error("GSAP not available");
+      }
+    });
+  </script>
 </section>

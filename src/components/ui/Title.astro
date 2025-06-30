@@ -1,0 +1,15 @@
+---
+const { bg, text, bgClass } = Astro.props;
+---
+
+<div class="flex flex-col items-center">
+  <span
+    class={` uppercase text-transparent bg-clip-text bg-linear-0 from-[white]/0 leading-[100%] to-white opacity-[10%] text-center block text-[124px] font-extrabold ${bgClass}`}
+    >{bg}</span
+  >
+  <h2
+    class="-mt-12 font-extrabold text-white text-[35px] text-center uppercase"
+  >
+    {text}
+  </h2>
+</div>
