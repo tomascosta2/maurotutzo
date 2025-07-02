@@ -3,26 +3,32 @@ const { title, image, alt, number, bg, bgClass } = Astro.props;
 ---
 
 <div
-  class="bg-[#111] p-[2px] pb-0 overflow-clip relative rounded-lg h-full flex flex-col max-h-[380px]"
+  class="bg-[#111] p-[2px] pb-0 overflow-clip relative rounded-lg h-full flex flex-col max-h-[400px] sm:max-h-[450px]"
 >
   <div
-    class="bgHardYellow -top-[50px] blur-2xl left-[calc(50%-50px)] size-[100px] rounded-full absolute"
+    class="bgHardYellow -top-[30px] sm:-top-[50px] blur-xl sm:blur-2xl left-[calc(50%-40px)] sm:left-[calc(50%-50px)] size-[80px] sm:size-[100px] rounded-full absolute"
   >
   </div>
   <div
-    class="bg-[#111] relative px-4 pt-[50px] rounded-[6px] flex-1 flex flex-col"
+    class="bg-[#111] relative px-3 sm:px-4 pt-8 sm:pt-[50px] rounded-[6px] flex-1 flex flex-col"
   >
-    <div
-      class="shadow-[0_4px_18.1px_0_rgba(243,212,68,0.4)] size-[47px] mx-auto rounded-full flex items-center justify-center text-[22px] text-white font-extrabold bg-linear-0 to-[#F3D444] from-[#FFD200]"
-    >
-      {number}
+    <div class="h-[50px] sm:h-[60px] flex items-center justify-center">
+      <div
+        class="shadow-[0_4px_18.1px_0_rgba(243,212,68,0.4)] size-[35px] sm:size-[47px] rounded-full flex items-center justify-center text-lg sm:text-[22px] text-white font-extrabold bg-linear-0 to-[#F3D444] from-[#FFD200]"
+      >
+        {number}
+      </div>
     </div>
-    <h3
-      class="text-white font-bold text-center text-[18px] leading-[110%] mt-4"
-    >
-      {title}
-    </h3>
-    <div class="flex-1 flex flex-col px-4">
+
+    <div class="h-[60px] sm:h-[70px] flex items-center justify-center">
+      <h3
+        class="text-white font-bold text-center text-sm sm:text-[18px] leading-[110%]"
+      >
+        {title}
+      </h3>
+    </div>
+
+    <div class="flex-1 flex flex-col justify-end px-2 sm:px-4 h-fit">
       <slot />
     </div>
   </div>

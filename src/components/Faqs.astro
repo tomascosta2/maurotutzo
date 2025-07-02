@@ -1,0 +1,75 @@
+---
+import Title from "./ui/Title.astro";
+import PlusIcon from "/public/svg/plus.svg";
+
+const faqs = [
+  {
+    pregunta: "¿Necesito experiencia previa?",
+    respuesta: "rpta",
+  },
+  {
+    pregunta: "¿Necesito saber inglés?",
+    respuesta: "rpta",
+  },
+  {
+    pregunta: "¿Funciona desde cualquier país?",
+    respuesta: "rpta",
+  },
+  {
+    pregunta: "¿Cuanto tiempo tengo que dedicarle al día para aprenderlo?",
+    respuesta: "rpta",
+  },
+];
+---
+
+<section
+  id="faqs"
+  class="relative py-12 sm:py-16 md:py-[60px] lg:pt-[140px] px-4 bg-[rgba(17,17,17,1)]"
+>
+  <Title bg="FAQs" text="Preguntas frecuentes" />
+  <div class="max-w-[800px] mx-auto mt-4 sm:mt-6" id="faq-container">
+    {
+      faqs.map((item, index) => (
+        <div
+          class="faq-item w-full cursor-pointer p-4 sm:p-5 md:p-[20px] border-b border-b-white/50 last:border-b-0"
+          data-index={index}>
+          <h3 class="faq-question font-regular text-base sm:text-lg md:text-[18px] lg:text-[20px] text-white flex justify-between items-center">
+            {item.pregunta}
+            <PlusIcon />
+          </h3>
+          <div class="faq-answer normal-case overflow-hidden duration-500 transition-all max-h-0">
+            <p class="text-white text-sm sm:text-base md:text-[18px] pt-3 sm:pt-[10px]">
+              {item.respuesta}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script is:inline>
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+    const icon = item.querySelector(".faq-icon");
+
+    question.addEventListener("click", () => {
+      const isOpen = answer.classList.contains("max-h-[2000px]");
+
+      document
+        .querySelectorAll(".faq-answer")
+        .forEach((ans) => ans.classList.remove("max-h-[2000px]"));
+      document
+        .querySelectorAll(".faq-icon")
+        .forEach((i) => i.classList.remove("rotate-45"));
+
+      if (!isOpen) {
+        answer.classList.add("max-h-[2000px]");
+        icon.classList.add("rotate-45");
+      }
+    });
+  });
+</script>

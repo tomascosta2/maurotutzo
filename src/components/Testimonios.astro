@@ -1,189 +1,63 @@
 ---
+import CustomButton from "./ui/CustomButton.astro";
 import Title from "./ui/Title.astro";
+import TestimonioCard from "./ui/TestimonioCard.astro";
+
+const testimoniosData = [
+  {
+    id: 1,
+    videoId: "5abebplbpo",
+    title: "Enzo genero 6.300 usd de ganancia en su X mes",
+    description:
+      "Hace unos meses Enzo habia tenido que pedir prestados usd150 para comer y pagar el alquiler, hoy genera +X.XXX usd todos los meses trabajando desde su casa gracias a tomar accion, estudiar y aplicar todo lo que le enseñamos.",
+    name: "Enzo Toledo",
+    details: "X años || Ubicación",
+    videoPadding: "62.5%",
+  },
+  {
+    id: 2,
+    videoId: "vvilbp438p",
+    title: "Llego a los 5.000 dolares por mes en solo 5 meses",
+    description: "Hacia 10 horas como uber y hoy factura +5.000 usd",
+    name: "Nombre y Apellido",
+    details: "X años || Ubicación",
+    videoPadding: "56.25%",
+  },
+  {
+    id: 3,
+    videoId: "kiyruo4om9",
+    title: "Llego a los 5.000 dolares por mes en solo 5 meses",
+    description: "Hacia 10 horas como uber y hoy factura +5.000 usd",
+    name: "Nombre y Apellido",
+    details: "X años || Ubicación",
+    videoPadding: "62.5%",
+  },
+];
 ---
 
-<section class="py-[80px]">
+<section class="py-12 sm:py-16 md:py-[80px]">
   <div class="max-w-[1020px] mx-auto px-4">
-    <Title bg="Testimonios" text="Algunos de nuestros clientes" />
-    <div class="mt-8">
-      <!-- TESTIMONIO 1 -->
-      <div class="bg-black p-[2px] overflow-clip relative rounded-lg">
-        <div
-          class="bgHardYellow -top-[175px] blur-3xl left-[calc(50%-175px)] size-[350px] rounded-full absolute"
-        >
-        </div>
-        <div class="bg-black relative p-[50px]">
-          <div class="flex gap-8">
-            <div class="flex items-center">
-              <div
-                class="border border-white/20 min-w-[380px] max-w-full aspect-video rounded-lg overflow-clip"
-              >
-                <div
-                  class="wistia_responsive_padding"
-                  style="padding:62.5% 0 0 0;position:relative;"
-                >
-                  <div
-                    class="wistia_responsive_wrapper"
-                    style="height:100%;left:0;position:absolute;top:0;width:100%;"
-                  >
-                    <iframe
-                      src="https://fast.wistia.net/embed/iframe/5abebplbpo?web_component=true&seo=true"
-                      title="Enzo toledo entrevista 2 Video"
-                      allow="autoplay; fullscreen"
-                      allowtransparency="true"
-                      frameborder="0"
-                      scrolling="no"
-                      class="wistia_embed"
-                      name="wistia_embed"
-                      width="100%"
-                      height="100%"></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-6 flex flex-col justify-between">
-              <div>
-                <h3 class="font-bold text-white text-[22px] leading-[120%]">
-                  Enzo genero 6.300 usd de ganancia en su X mes
-                </h3>
-                <p class="text-white/80 mt-4 leading-[120%]">
-                  Hace unos meses Enzo habia tenido que pedir prestados usd150
-                  para comer y pagar el alquiler, hoy genera +X.XXX usd todos
-                  los meses trabajando desde su casa gracias a tomar accion,
-                  estudiar y aplicar todo lo que le enseñamos.
-                </p>
-              </div>
-              <div class="mt-8">
-                <p class="text-white/80">Enzo Toledo</p>
-                <p class="text-white/80">X años || Ubicación</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TESTIMONIO 2 -->
-      <div class="bg-black p-[2px] overflow-clip relative rounded-lg mt-8">
-        <div
-          class="bgHardYellow -top-[175px] blur-3xl left-[calc(50%-175px)] size-[350px] rounded-full absolute"
-        >
-        </div>
-        <div class="bg-black relative p-[50px]">
-          <div class="flex gap-8">
-            <div class="flex items-center">
-              <div
-                class="border border-white/20 min-w-[380px] max-w-full aspect-video rounded-lg overflow-clip"
-              >
-                <div
-                  class="wistia_responsive_padding"
-                  style="padding:56.25% 0 0 0;position:relative;"
-                >
-                  <div
-                    class="wistia_responsive_wrapper"
-                    style="height:100%;left:0;position:absolute;top:0;width:100%;"
-                  >
-                    <iframe
-                      src="https://fast.wistia.net/embed/iframe/vvilbp438p?web_component=true&seo=true"
-                      title="entrevista pato Video"
-                      allow="autoplay; fullscreen"
-                      allowtransparency="true"
-                      frameborder="0"
-                      scrolling="no"
-                      class="wistia_embed"
-                      name="wistia_embed"
-                      width="100%"
-                      height="100%"></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-6 flex flex-col justify-between">
-              <div>
-                <h3 class="font-bold text-white text-[22px] leading-[120%]">
-                  Llego a los 5.000 dolares por mes en solo 5 meses
-                </h3>
-                <p class="text-white/80 mt-4 leading-[120%]">
-                  Hacia 10 horas como uber y hoy factura +5.000 usd
-                </p>
-              </div>
-              <div class="mt-8">
-                <p class="text-white/80">Nombre y Apellido</p>
-                <p class="text-white/80">X años || Ubicación</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TESTIMONIO 3 -->
-      <div class="bg-black p-[2px] overflow-clip relative rounded-lg mt-8">
-        <div
-          class="bgHardYellow -top-[175px] blur-3xl left-[calc(50%-175px)] size-[350px] rounded-full absolute"
-        >
-        </div>
-        <div class="bg-black relative p-[50px]">
-          <div class="flex gap-8">
-            <div class="flex items-center">
-              <div
-                class="border border-white/20 min-w-[380px] max-w-full aspect-video rounded-lg overflow-clip"
-              >
-                <div
-                  class="wistia_responsive_padding"
-                  style="padding:62.5% 0 0 0;position:relative;"
-                >
-                  <div
-                    class="wistia_responsive_wrapper"
-                    style="height:100%;left:0;position:absolute;top:0;width:100%;"
-                  >
-                    <iframe
-                      src="https://fast.wistia.net/embed/iframe/kiyruo4om9?web_component=true&seo=true"
-                      title="Entrevista Nico pasquini Video"
-                      allow="autoplay; fullscreen"
-                      allowtransparency="true"
-                      frameborder="0"
-                      scrolling="no"
-                      class="wistia_embed"
-                      name="wistia_embed"
-                      width="100%"
-                      height="100%"></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="py-6 flex flex-col justify-between">
-              <div>
-                <h3 class="font-bold text-white text-[22px] leading-[120%]">
-                  Llego a los 5.000 dolares por mes en solo 5 meses
-                </h3>
-                <p class="text-white/80 mt-4 leading-[120%]">
-                  Hacia 10 horas como uber y hoy factura +5.000 usd
-                </p>
-              </div>
-              <div class="mt-8">
-                <p class="text-white/80">Nombre y Apellido</p>
-                <p class="text-white/80">X años || Ubicación</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <Title bg="TESTIMONIOS" text="Algunos de" highlight="nuestros clientes" />
+    <div class="mt-6 sm:mt-8">
+      {
+        testimoniosData.map((testimonio, index) => (
+          <TestimonioCard
+            videoId={testimonio.videoId}
+            title={testimonio.title}
+            description={testimonio.description}
+            name={testimonio.name}
+            details={testimonio.details}
+            videoPadding={testimonio.videoPadding}
+            isFirst={index === 0}
+          />
+        ))
+      }
     </div>
-    <button
-      class="cursor-pointer flex gap-2 mt-8 items-center uppercase bgLinear w-fit font-semibold text-[#111] outline-4 outline-white/30 mx-auto py-4 px-8 rounded-[16px]"
-    >
-      Agendar mi Sesión de Consultoría Gratuita
-      <svg
-        width="13"
-        height="12"
-        viewBox="0 0 13 12"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M6.41318 11.6364L5.09499 10.3296L8.55522 6.86932H0.447266V4.94887H8.55522L5.09499 1.49432L6.41318 0.181824L12.1404 5.9091L6.41318 11.6364Z"
-          fill="#111111"></path>
-      </svg>
-    </button>
-    <p class="text-white/80 text-center mt-4">¡Ultimas plazas del mes!</p>
+    <CustomButton
+      text="Agendar tu sesión de consultoría gratuita"
+      subtext="¡Ultimas plazas del mes!"
+      class="mt-8"
+      href="/"
+    />
   </div>
 </section>

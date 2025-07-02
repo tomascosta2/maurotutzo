@@ -1,0 +1,36 @@
+---
+const { icon, title, description } = Astro.props;
+---
+
+<div
+  class="bg-[#111] p-[2px] w-full md:max-w-[263px] h-[280px] sm:h-[320px] md:h-[352px] pb-0 overflow-clip relative rounded-lg flex flex-col"
+>
+  <div
+    class="bgHardYellow -top-[30px] sm:-top-[50px] blur-xl sm:blur-2xl left-[calc(50%-40px)] sm:left-[calc(50%-50px)] size-[80px] sm:size-[100px] rounded-full absolute"
+  >
+  </div>
+
+  <!-- Card content -->
+  <div
+    class="bg-black relative p-6 sm:p-8 md:px-10 md:pt-12 rounded-2xl border border-white/20 pb-auto h-full"
+  >
+    <!-- Icon -->
+    <div class="w-fit mx-auto md:mx-0 mb-3 sm:mb-4">
+      <Fragment set:html={icon} />
+    </div>
+
+    <!-- Title -->
+    <h3
+      class="text-white font-bold text-lg sm:text-xl md:text-[22px] text-center md:text-left mb-3 sm:mb-4 leading-tight"
+    >
+      {title}
+    </h3>
+
+    <!-- Description -->
+    <p
+      class="text-white/80 text-center md:text-left text-sm sm:text-base md:text-[16px] leading-[110%] tracking-[-1%]"
+    >
+      {description}
+    </p>
+  </div>
+</div>

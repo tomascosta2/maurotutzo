@@ -6,216 +6,148 @@ import Money from "/public/svg/money.svg";
 import AgendaIcon from "/public/svg/agenda.svg";
 import BinanceIcon from "/public/svg/binance.svg";
 import StripeIcon from "/public/svg/stripe.svg";
+import CustomButton from "./ui/CustomButton.astro";
 
-const data = [
+const pasosData = [
   {
-    title: "Te enseñamos a cerrar ventas por videollamada",
-    image: "/images/pasos/paso-1.png",
-    alt: "Paso 1",
     number: 1,
-    bg: "bg-linear-0 from-[#8D7B27] mt-8 to-[#F3D444] p-4 rounded-tl-[10px] rounded-tr-[10px]",
-    bgClass:
-      "bg-linear-0 from-[#8D7B27] mt-8 to-[#F3D444] p-4 rounded-tl-[10px] rounded-tr-[10px]",
+    title: "Te enseñamos a cerrar ventas por videollamada",
+    type: "training",
+    icons: [ProfileImage, SalesLogo, Money],
+    description: "Aprende las técnicas de cierre más efectivas",
+  },
+  {
+    number: 2,
+    title: "Te conectamos con empresas ya posicionadas",
+    type: "connection",
+    description: "Accede a nuestra red de empresas establecidas",
+  },
+  {
+    number: 3,
+    title: "Trabajas desde tu casa y logras libertad economica",
+    type: "results",
+    notifications: [
+      { icon: AgendaIcon, text: "Nueva agenda" },
+      { icon: BinanceIcon, text: "Nueva agenda" },
+      { icon: AgendaIcon, text: "Pago recibido - Binance" },
+      { icon: StripeIcon, text: "Pago recibido - Stripe" },
+    ],
+    description: "Obtén ingresos constantes trabajando desde casa",
   },
 ];
 ---
 
-<section class="pt-[100px]">
-  <div class="max-w-[900px] mx-auto">
+<section class="pt-16 sm:pt-20 md:pt-[100px]">
+  <div class="max-w-[900px] mx-auto px-4">
     <h2
-      class="max-w-[620px] mx-auto -mt-12 leading-[110%] mb-4 font-extrabold text-white text-[35px] text-center"
+      class="max-w-[95%] sm:max-w-[620px] mx-auto -mt-6 sm:-mt-8 md:-mt-12 leading-[110%] mb-3 sm:mb-4 font-extrabold text-white text-xl sm:text-2xl md:text-[35px] text-center"
     >
       Nuestro método de <span class="textHardYellow">3 pasos</span> para vivir de
       cerrar ventas online
     </h2>
     <p
-      class="max-w-[280px] text-[16px] mx-auto text-center text-white/80 leading-[120%]"
+      class="max-w-[90%] sm:max-w-[280px] text-sm sm:text-base md:text-[16px] mx-auto text-center text-white/80 leading-[120%]"
     >
       El paso a paso que crea casos de éxito todos los meses.
     </p>
 
-    <div class="grid grid-cols-3 gap-6 mt-8">
-      <PasosCard
-        title="Te enseñamos a cerrar ventas por videollamada"
-        number={1}
-      >
-        <div
-          class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-6 relative min-h-[200px] overflow-clip"
-        >
-          <div class="absolute z-[20] inset-0 flex items-center justify-center">
-            <div
-              class="w-[150px] h-[150px] rounded-full bg-[rgba(255,210,0,1)] blur-[86.85px]"
-            >
-            </div>
-          </div>
-          <div
-            class="flex flex-col gap-4 items-center justify-center relative z-40"
-          >
-            {
-              [<ProfileImage />, <SalesLogo />, <Money />].map((item) => (
-                <div class="size-[45px] rounded-full border border-white shadow-drop grid place-items-center bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)] z-10">
-                  {item}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8">
+      {
+        pasosData.map((paso) => (
+          <PasosCard title={paso.title} number={paso.number}>
+            {paso.type === "training" && (
+              <div class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-3 sm:p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-4 sm:mt-6 relative min-h-[180px] sm:min-h-[200px] overflow-clip">
+                <div class="absolute z-[20] inset-0 flex items-center justify-center">
+                  <div class="w-32 sm:w-[150px] h-full rounded-full bg-[rgba(255,210,0,1)] blur-[86.85px]" />
                 </div>
-              ))
-            }
-            <div
-              class="golden-pulse absolute w-[100px] h-[2px] bg-gradient-to-r from-[#F3D444] via-[#FFD200] to-[#F3D444] rotate-90"
-            >
-            </div>
-          </div>
-        </div>
-      </PasosCard>
-      <!-- 2 -->
-      <PasosCard title="Te conectamos con empresas ya posicionadas" number={2}>
-        <div
-          class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-[14px] rounded-tl-[10px] rounded-tr-[10px] min-h-[200px] mt-6 relative overflow-hidden"
-        >
-          <div class="absolute inset-0 flex gap-1 flex-col bg-black/50 blur-[1px] py-4">
-            {
-              Array.from({ length: 5 }).map((_, rowIndex) => (
-                <div
-                  class={`bg-row ${rowIndex % 2 === 0 ? "row-even" : "row-odd"}`}>
-                  {Array.from({ length: 8 }).map(() => (
-                    <div class="bg-box" />
+                <div class="flex flex-col gap-3 sm:gap-4 items-center justify-center relative z-40">
+                  {paso.icons?.map((IconComponent) => (
+                    <div class="size-[35px] sm:size-[45px] rounded-full border border-white shadow-drop grid place-items-center bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)] z-10">
+                      <IconComponent />
+                    </div>
                   ))}
-                  {/* Add duplicate boxes for seamless animation */}
-                  {Array.from({ length: 8 }).map(() => (
-                    <div class="bg-box" />
-                  ))}
+                  <div class="golden-pulse absolute w-20 sm:w-[100px] h-[2px] bg-gradient-to-r from-[#F3D444] via-[#FFD200] to-[#F3D444] rotate-90" />
                 </div>
-              ))
-            }
-          </div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="size-[150px] rounded-full bg-[rgba(255,210,0,0.7)] blur-[86.85px]"
-            >
-            </div>
-          </div>
-
-          <div
-            class="flex flex-col gap-4 items-center justify-center relative z-10 h-full"
-          >
-            <div
-              class="size-[55px] rounded-full shadow-drop grid place-items-center z-10 relative border border-white/50 shadow-lg shadow-white/20 bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)]"
-            >
-              <SalesLogo />
-            </div>
-          </div>
-        </div>
-      </PasosCard>
-      <!-- 3 -->
-      <PasosCard
-        title="Trabajas desde tu casa y logras libertad economica"
-        number={3}
-      >
-        <div
-          class="h-full mt-6 rounded-t-xl bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] overflow-clip pt-[13px] px-[14px]"
-        >
-          <div
-            class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] pt-[14px] px-[10px] rounded-tl-[10px] rounded-tr-[10px] relative min-h-[200px] overflow-hidden"
-          >
-            <div class="absolute inset-0 flex flex-col bg-black/50 blur-[1px]">
-              <div></div>
-            </div>
-
-            <div
-              class="absolute inset-0 flex items-center justify-center z-[999]"
-            >
-              <div
-                class="w-[150px] h-[150px] rounded-full bg-[rgba(255,210,0,1)] blur-[84px]"
-              >
               </div>
-            </div>
+            )}
 
-            <div
-              class="flex flex-col gap-4 items-center justify-center relative z-10 h-full"
-            >
-              <div class="w-full h-full">
-                <div
-                  class="w-full bg-[rgba(17,17,17,0.5)] rounded-[6.19px] leading-[110%] border border-[rgba(255,210,0,1)] text-white text-[10px] flex items-center p-2 py-3"
-                >
-                  <p>Resultados de nuestros closers</p>
+            {paso.type === "connection" && (
+              <div class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-3 sm:p-[14px] rounded-tl-[10px] rounded-tr-[10px] min-h-[180px] sm:min-h-[200px] mt-4 sm:mt-6 relative overflow-hidden">
+                <div class="absolute inset-0 flex gap-1 flex-col bg-black/50 blur-[1px] py-2 sm:py-4">
+                  {Array.from({ length: 5 }).map((_, rowIndex) => (
+                    <div
+                      class={`bg-row ${rowIndex % 2 === 0 ? "row-even" : "row-odd"}`}>
+                      {Array.from({ length: 8 }).map(() => (
+                        <div class="bg-box" />
+                      ))}
+                      {Array.from({ length: 8 }).map(() => (
+                        <div class="bg-box" />
+                      ))}
+                    </div>
+                  ))}
                 </div>
-                <div
-                  class="notifications-container h-[120px] overflow-hidden relative"
-                >
-                  <div
-                    class="notifications-scroll flex flex-col gap-1 w-full py-1"
-                  >
-                    <div class="w-full">
-                      <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,.5)] p-2 text-white text-[10px]"
-                      >
-                        <AgendaIcon />
-                        <p>Nueva agenda</p>
-                      </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="size-32 sm:size-[150px] rounded-full bg-[rgba(255,210,0,0.7)] blur-[86.85px]" />
+                </div>
+
+                <div class="flex flex-col gap-3 sm:gap-4 items-center justify-center relative z-10 h-full">
+                  <div class="size-[45px] sm:size-[55px] rounded-full shadow-drop grid place-items-center z-10 relative border border-white/50 shadow-lg shadow-white/20 bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)]">
+                    <SalesLogo />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {paso.type === "results" && (
+              <div class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-3 sm:p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-4 sm:mt-6 relative min-h-[180px] sm:min-h-[200px] overflow-hidden">
+                <div class="absolute inset-0 flex flex-col bg-black/50 blur-[1px]">
+                  <div />
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center z-[999]">
+                  <div class="w-32 h-32 sm:w-[150px] sm:h-[150px] rounded-full bg-[rgba(255,210,0,1)] blur-[84px]" />
+                </div>
+
+                <div class="flex flex-col gap-4 sm:gap-5 items-center justify-center relative z-10 h-full p-2 sm:p-3">
+                  <div class="w-full h-full">
+                    <div class="w-full bg-[rgba(17,17,17,0.5)] rounded-[8px] leading-[110%] border border-[rgba(255,210,0,1)] text-white text-[9px] sm:text-[11px] flex items-center p-2.5 sm:p-3 py-3 sm:py-4 whitespace-nowrap mb-3 sm:mb-4">
+                      <p>Resultados de nuestros closers</p>
                     </div>
-                    <div class="w-full">
-                      <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,.5)] p-2 text-white text-[10px]"
-                      >
-                        <BinanceIcon />
-                        <p>Nueva agenda</p>
-                      </div>
-                    </div>
-                    <div class="w-full">
-                      <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,.5)] p-2 text-white text-[10px]"
-                      >
-                        <AgendaIcon />
-                        <p>Pago recibido - Binance</p>
-                      </div>
-                    </div>
-                    <div class="w-full">
-                      <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,.5)] p-2 text-white text-[10px]"
-                      >
-                        <StripeIcon />
-                        <p>Pago recibido - Stripe</p>
-                      </div>
-                    </div>
-                    <!-- Duplicate items for seamless scrolling -->
-                    <div class="w-full">
-                      <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
-                      >
-                        <AgendaIcon />
-                        <p>Nueva agenda</p>
-                      </div>
-                    </div>
-                    <div class="w-full">
-                      <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
-                      >
-                        <BinanceIcon />
-                        <p>Nueva agenda</p>
-                      </div>
-                    </div>
-                    <div class="w-full">
-                      <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
-                      >
-                        <AgendaIcon />
-                        <p>Pago recibido - Binance</p>
-                      </div>
-                    </div>
-                    <div class="w-full">
-                      <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
-                      >
-                        <StripeIcon />
-                        <p>Pago recibido - Stripe</p>
+                    <div class="notifications-container h-[110px] sm:h-[130px] overflow-hidden relative">
+                      <div class="notifications-scroll flex flex-col gap-1.5 sm:gap-2 w-full py-2">
+                        {paso.notifications?.map((notification) => (
+                          <div class="w-full">
+                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,.5)] p-2.5 sm:p-3 text-white text-[9px] sm:text-[11px]">
+                              <notification.icon />
+                              <p>{notification.text}</p>
+                            </div>
+                          </div>
+                        ))}
+                        {/* Duplicate for seamless scrolling */}
+                        {paso.notifications?.map((notification) => (
+                          <div class="w-full">
+                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,1)] p-2.5 sm:p-3 text-white text-[9px] sm:text-[11px]">
+                              <notification.icon />
+                              <p>{notification.text}</p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </PasosCard>
+            )}
+          </PasosCard>
+        ))
+      }
     </div>
+    <CustomButton
+      text="Agendar tu sesión de consultoría gratuita"
+      subtext="¡Ultimas plazas del mes!"
+      class="mt-8"
+      href="/"
+    />
   </div>
 
   <style>
@@ -236,13 +168,21 @@ const data = [
     }
 
     .bg-box {
-      width: 80px;
-      height: 30px;
-      margin: 0 5px;
+      width: 60px;
+      height: 20px;
+      margin: 0 3px;
       background-color: rgba(17, 17, 17, 0.5);
       border-radius: 100px;
       border: 2px solid rgba(255, 210, 0, 0.3);
       opacity: 0.6;
+    }
+
+    @media (min-width: 640px) {
+      .bg-box {
+        width: 80px;
+        height: 30px;
+        margin: 0 5px;
+      }
     }
 
     .golden-pulse {

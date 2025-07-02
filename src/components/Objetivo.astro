@@ -1,0 +1,68 @@
+---
+import ObjetivosCard from "./ui/ObjetivosCard.astro";
+import CustomButton from "./ui/CustomButton.astro";
+
+// SVG content
+const lockIcon = `<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.8125 16.1875V10.4062C20.8125 8.56631 21.5434 6.80173 22.8444 5.5007C24.1455 4.19966 25.9101 3.46875 27.75 3.46875C29.5899 3.46875 31.3545 4.19966 32.6556 5.5007C33.9566 6.80173 34.6875 8.56631 34.6875 10.4062V16.1875M5.78125 33.5312H21.9687C22.8887 33.5312 23.771 33.1658 24.4215 32.5153C25.072 31.8648 25.4375 30.9825 25.4375 30.0625V19.6562C25.4375 18.7363 25.072 17.854 24.4215 17.2035C23.771 16.553 22.8887 16.1875 21.9687 16.1875H5.78125C4.86128 16.1875 3.97899 16.553 3.32847 17.2035C2.67796 17.854 2.3125 18.7363 2.3125 19.6562V30.0625C2.3125 30.9825 2.67796 31.8648 3.32847 32.5153C3.97899 33.1658 4.86128 33.5312 5.78125 33.5312Z" stroke="#FFD200" stroke-width="2.3125" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
+const shieldIcon = `<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.875 19.6562L17.3438 23.125L23.125 15.0312M18.5 4.18408C15.0093 7.49903 10.3604 9.31718 5.54692 9.25C4.93463 11.1154 4.62342 13.0664 4.62501 15.0297C4.62501 23.6507 10.5203 30.8935 18.5 32.9485C26.4797 30.895 32.375 23.6523 32.375 15.0312C32.375 13.0117 32.0513 11.0676 31.4531 9.24846H31.2188C26.2916 9.24846 21.8146 7.32446 18.5 4.18408Z" stroke="#FFD200" stroke-width="2.3125" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
+const objetivos = [
+  {
+    icon: lockIcon,
+    title: "Libertad",
+    description:
+      "Vivir de las ventas online, poder trabajar desde donde quieras y en el horario que quieras, generando un ingreso mensual mayor a 2.000 usd.",
+  },
+  {
+    icon: shieldIcon,
+    title: "Autoridad",
+    description:
+      "Ser un experto en la habilidad más demandada del mercado, que te va a generar ingresos en USD de por vida.",
+  },
+];
+---
+
+<section
+  class="pt-16 sm:pt-20 md:pt-[100px] bg-[rgba(17,17,17,1)] rounded-[40px] w-full"
+>
+  <div class="mx-auto px-4">
+    <h2
+      class="max-w-[95%] sm:max-w-[620px] mx-auto leading-[110%] mb-3 sm:mb-4 font-extrabold text-white text-xl sm:text-2xl md:text-[35px] text-center"
+    >
+      Cuál es el <span class="textHardYellow">objetivo final</span>?
+    </h2>
+    <p
+      class="max-w-[90%] sm:max-w-[373px] text-sm sm:text-base md:text-[16px] mx-auto text-center text-white/80 leading-[120%]"
+    >
+      Todo lo que hacemos es para ayudarte a lograr dos cosas que nosotros ya
+      hicimos.
+    </p>
+
+    <div
+      class="flex flex-col md:flex-row justify-center items-center gap-6 sm:gap-8 mt-6 sm:mt-8 max-w-[700px] mx-auto"
+    >
+      {
+        objetivos.map((objetivo) => (
+          <ObjetivosCard
+            class="w-[37px] h-[37px]"
+            icon={objetivo.icon}
+            title={objetivo.title}
+            description={objetivo.description}
+          />
+        ))
+      }
+    </div>
+
+    <CustomButton
+      text="Agendar tu sesión de consultoría gratuita"
+      subtext="¡Ultimas plazas del mes!"
+      class="mt-8"
+      href="/"
+    />
+  </div>
+</section>
