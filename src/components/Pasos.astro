@@ -40,7 +40,7 @@ const data = [
         number={1}
       >
         <div
-          class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-6 relative"
+          class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-6 relative min-h-[200px] overflow-clip"
         >
           <div class="absolute z-[20] inset-0 flex items-center justify-center">
             <div
@@ -49,11 +49,11 @@ const data = [
             </div>
           </div>
           <div
-            class="flex flex-col gap-4 items-center justify-center relative z-10"
+            class="flex flex-col gap-4 items-center justify-center relative z-40"
           >
             {
               [<ProfileImage />, <SalesLogo />, <Money />].map((item) => (
-                <div class="w-[38px] h-[38px] rounded-full border border-white shadow-drop grid place-items-center bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)] z-10">
+                <div class="size-[40px] rounded-full border border-white shadow-drop grid place-items-center bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)] z-10">
                   {item}
                 </div>
               ))
@@ -68,18 +68,18 @@ const data = [
       <!-- 2 -->
       <PasosCard title="Te conectamos con empresas ya posicionadas" number={2}>
         <div
-          class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-6 relative h-full overflow-hidden"
+          class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-[14px] rounded-tl-[10px] rounded-tr-[10px] min-h-[200px] mt-6 relative overflow-hidden"
         >
-          <div class="absolute inset-0 flex flex-col bg-black/50 blur-[1px]">
+          <div class="absolute inset-0 flex gap-1 flex-col bg-black/50 blur-[1px] py-4">
             {
-              Array.from({ length: 8 }).map((_, rowIndex) => (
+              Array.from({ length: 5 }).map((_, rowIndex) => (
                 <div
                   class={`bg-row ${rowIndex % 2 === 0 ? "row-even" : "row-odd"}`}>
-                  {Array.from({ length: 10 }).map(() => (
+                  {Array.from({ length: 8 }).map(() => (
                     <div class="bg-box" />
                   ))}
                   {/* Add duplicate boxes for seamless animation */}
-                  {Array.from({ length: 10 }).map(() => (
+                  {Array.from({ length: 8 }).map(() => (
                     <div class="bg-box" />
                   ))}
                 </div>
@@ -113,7 +113,7 @@ const data = [
           class="h-full mt-6 rounded-t-xl bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] overflow-clip pt-[13px] px-[14px]"
         >
           <div
-            class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] pt-[14px] px-[14px] rounded-tl-[10px] rounded-tr-[10px] relative h-full overflow-hidden"
+            class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] pt-[14px] px-[10px] rounded-tl-[10px] rounded-tr-[10px] relative min-h-[200px] overflow-hidden"
           >
             <div class="absolute inset-0 flex flex-col bg-black/50 blur-[1px]">
               <div></div>
@@ -123,7 +123,7 @@ const data = [
               class="absolute inset-0 flex items-center justify-center z-[999]"
             >
               <div
-                class="w-[150px] h-[150px] rounded-full bg-[rgba(255,210,0,1)] blur-[86.85px]"
+                class="w-[150px] h-[150px] rounded-full bg-[rgba(255,210,0,1)] blur-[84px]"
               >
               </div>
             </div>
@@ -138,14 +138,14 @@ const data = [
                   <p>Resultados de nuestros closers</p>
                 </div>
                 <div
-                  class="notifications-container h-[100px] overflow-hidden relative"
+                  class="notifications-container h-[120px] overflow-hidden relative"
                 >
                   <div
                     class="notifications-scroll flex flex-col gap-1 w-full py-1"
                   >
                     <div class="w-full">
                       <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,.5)] p-2 text-white text-[10px]"
                       >
                         <AgendaIcon />
                         <p>Nueva agenda</p>
@@ -153,7 +153,7 @@ const data = [
                     </div>
                     <div class="w-full">
                       <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,.5)] p-2 text-white text-[10px]"
                       >
                         <BinanceIcon />
                         <p>Nueva agenda</p>
@@ -161,7 +161,7 @@ const data = [
                     </div>
                     <div class="w-full">
                       <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,.5)] p-2 text-white text-[10px]"
                       >
                         <AgendaIcon />
                         <p>Pago recibido - Binance</p>
@@ -169,7 +169,7 @@ const data = [
                     </div>
                     <div class="w-full">
                       <div
-                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,1)] p-2 text-white text-[10px]"
+                        class="w-full bg-[rgba(17,17,17,0.1)] rounded-[6.19px] flex flex-row gap-2 items-center border border-[rgba(255,210,0,.5)] p-2 text-white text-[10px]"
                       >
                         <StripeIcon />
                         <p>Pago recibido - Stripe</p>
@@ -237,10 +237,10 @@ const data = [
 
     .bg-box {
       width: 80px;
-      height: 20px;
+      height: 30px;
       margin: 0 5px;
       background-color: rgba(17, 17, 17, 0.5);
-      border-radius: 10px;
+      border-radius: 100px;
       border: 2px solid rgba(255, 210, 0, 0.3);
       opacity: 0.6;
     }
@@ -284,7 +284,7 @@ const data = [
             {
               x: "-50%",
               repeat: -1,
-              duration: 15,
+              duration: 50,
               ease: "linear",
             }
           );
@@ -298,7 +298,7 @@ const data = [
             {
               x: "0%",
               repeat: -1,
-              duration: 15,
+              duration: 50,
               ease: "linear",
             }
           );
