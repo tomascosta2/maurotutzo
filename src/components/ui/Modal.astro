@@ -1,0 +1,170 @@
+<div id="consultoria-modal" class="fixed inset-0 z-50 hidden">
+  <!-- Backdrop with blur -->
+  <div
+    class="absolute inset-0 bg-black/70 backdrop-blur-sm"
+    id="modal-backdrop"
+  >
+  </div>
+
+  <!-- Modal Content -->
+  <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+    <div
+      class="bg-[#111] border border-white/20 rounded-2xl p-6 sm:p-8 w-full max-w-md mx-auto relative overflow-hidden"
+    >
+      <!-- Gold blur effect -->
+      <div
+        class="bgHardYellow -top-[50px] blur-2xl left-[calc(50%-50px)] size-[100px] rounded-full absolute"
+      >
+      </div>
+
+      <!-- Close button -->
+      <button
+        id="close-modal"
+        class="absolute top-4 right-4 text-white/80 hover:text-white text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors duration-200"
+      >
+        ×
+      </button>
+
+      <!-- Modal content -->
+      <div class="relative z-10">
+        <h2
+          class="text-white font-extrabold text-lg sm:text-xl md:text-2xl text-center mb-2 leading-tight"
+        >
+          INGRESA TU EMAIL Y TE CONTAMOS EL PASO A PASO
+        </h2>
+
+        <form id="consultation-form" class="mt-6 space-y-4">
+          <!-- Name input -->
+          <div>
+            <label for="name" class="block text-white text-sm font-medium mb-2">
+              Nombre Completo *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 bg-white rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFD200] transition-all duration-200"
+              placeholder="Tu nombre completo"
+            />
+          </div>
+
+          <!-- Email input -->
+          <div>
+            <label
+              for="email"
+              class="block text-white text-sm font-medium mb-2"
+            >
+              Email *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 bg-white rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FFD200] transition-all duration-200"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <!-- Submit button -->
+          <button
+            type="submit"
+            class="w-full flex gap-2 items-center justify-center uppercase bgLinear font-semibold text-[#111] py-4 px-6 rounded-2xl text-sm md:text-base mt-6 hover:scale-[1.02] transition-transform duration-200"
+          >
+            <span>Agendar sesión</span>
+          </button>
+        </form>
+
+        <!-- Disclaimer -->
+        <p class="text-white/60 text-xs mt-4 leading-relaxed">
+          PD: No vendemos cursos teóricos que no funcionan, te enseñamos
+          técnicas probadas de ventas remotas y te conectamos con empresas
+          reales para que generes ingresos desde el primer mes.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupModal() {
+    const modal = document.getElementById("consultoria-modal");
+    const modalBackdrop = document.getElementById("modal-backdrop");
+    const closeButton = document.getElementById("close-modal");
+    const form = document.getElementById(
+      "consultation-form"
+    ) as HTMLFormElement;
+
+    if (!modal) return;
+
+    let originalOverflow = "";
+
+    // Function to open modal
+    (window as any).openConsultoriaModal = function () {
+      if (modal) {
+        // Store original overflow value
+        originalOverflow = document.body.style.overflow || "";
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    };
+
+    // Function to close modal
+    function closeModal() {
+      if (modal) {
+        modal.classList.add("hidden");
+        // Restore original overflow value properly
+        if (originalOverflow) {
+          document.body.style.overflow = originalOverflow;
+        } else {
+          document.body.style.removeProperty("overflow");
+        }
+      }
+    }
+
+    // Close modal events
+    if (closeButton) {
+      closeButton.addEventListener("click", closeModal);
+    }
+
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener("click", closeModal);
+    }
+
+    // Close on escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+
+    // Form submission
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const name = formData.get("name");
+        const email = formData.get("email");
+
+        // Here you would typically send the data to your backend
+        console.log("Form submitted:", { name, email });
+
+        // For now, just show an alert and close modal
+        alert(
+          "¡Gracias! Te contactaremos pronto para agendar tu sesión de consultoría gratuita."
+        );
+        closeModal();
+        form.reset();
+      });
+    }
+  }
+
+  // Setup modal when DOM is loaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupModal);
+  } else {
+    setupModal();
+  }
+</script>

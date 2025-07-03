@@ -1,9 +1,10 @@
 ---
-const { text, href, subtext } = Astro.props;
+const { text, subtext } = Astro.props;
 ---
 
 <>
   <button
+    onclick="window.openConsultoriaModal()"
     class="cursor-pointer flex gap-2 mt-6 sm:mt-8 items-center uppercase bgLinear w-fit font-semibold text-[#111] outline-4 outline-white/30 mx-auto py-3 sm:py-4 px-6 sm:px-8 rounded-2xl sm:rounded-[16px] text-xs sm:text-sm md:text-base max-w-[90%] sm:max-w-none"
   >
     <span class="text-center">{text}</span>

@@ -108,16 +108,16 @@ const pasosData = [
                   <div class="w-32 h-32 sm:w-[150px] sm:h-[150px] rounded-full bg-[rgba(255,210,0,1)] blur-[84px]" />
                 </div>
 
-                <div class="flex flex-col gap-4 sm:gap-5 items-center justify-center relative z-10 h-full p-2 sm:p-3">
+                <div class="flex flex-col gap-4 sm:gap-5 items-center justify-center relative z-10 h-full">
                   <div class="w-full h-full">
-                    <div class="w-full bg-[rgba(17,17,17,0.5)] rounded-[8px] leading-[110%] border border-[rgba(255,210,0,1)] text-white text-[9px] sm:text-[11px] flex items-center p-2.5 sm:p-3 py-3 sm:py-4 whitespace-nowrap mb-3 sm:mb-4">
+                    <div class="w-full bg-[rgba(17,17,17,0.5)] rounded-[8px] leading-[110%] border border-[rgba(255,210,0,1)] text-white text-[6px] sm:text-[10px] flex items-center p-2.5 sm:p-3 py-3  whitespace-nowrap mb-3 sm:mb-4">
                       <p>Resultados de nuestros closers</p>
                     </div>
                     <div class="notifications-container h-[110px] sm:h-[130px] overflow-hidden relative">
-                      <div class="notifications-scroll flex flex-col gap-1.5 sm:gap-2 w-full py-2">
+                      <div class="notifications-scroll flex flex-col gap-1.5 sm:gap-2 w-full">
                         {paso.notifications?.map((notification) => (
                           <div class="w-full">
-                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,.5)] p-2.5 sm:p-3 text-white text-[9px] sm:text-[11px]">
+                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,.5)] p-2.5  text-white text-[6px] sm:text-[10px]">
                               <notification.icon />
                               <p>{notification.text}</p>
                             </div>
@@ -126,7 +126,7 @@ const pasosData = [
                         {/* Duplicate for seamless scrolling */}
                         {paso.notifications?.map((notification) => (
                           <div class="w-full">
-                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,1)] p-2.5 sm:p-3 text-white text-[9px] sm:text-[11px]">
+                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,1)] p-2.5 text-white text-[9px] sm:text-[10px]">
                               <notification.icon />
                               <p>{notification.text}</p>
                             </div>
@@ -146,7 +146,6 @@ const pasosData = [
       text="Agendar tu sesión de consultoría gratuita"
       subtext="¡Ultimas plazas del mes!"
       class="mt-8"
-      href="/"
     />
   </div>
 
