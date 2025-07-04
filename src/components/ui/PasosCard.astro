@@ -12,9 +12,9 @@ const { title, image, alt, number, bg, bgClass } = Astro.props;
   <div
     class="bg-[#111] relative px-3 sm:px-4 pt-8 sm:pt-[50px] rounded-[6px] flex-1 flex flex-col justify-between h-full"
   >
-    <div class="h-[50px] sm:h-[60px] flex items-center justify-center">
+    <div class="h-[60px] flex items-center justify-center">
       <div
-        class="shadow-[0_4px_18.1px_0_rgba(243,212,68,0.4)] size-[35px] sm:size-[47px] rounded-full flex items-center justify-center text-lg sm:text-[22px] text-white font-extrabold bg-linear-0 to-[#F3D444] from-[#FFD200]"
+        class="shadow-[0_4px_18.1px_0_rgba(243,212,68,0.4)] size-[47px] rounded-full flex items-center justify-center text-base sm:text-[22px] text-white font-extrabold bg-linear-0 to-[#F3D444] from-[#FFD200]"
       >
         {number}
       </div>
@@ -22,7 +22,7 @@ const { title, image, alt, number, bg, bgClass } = Astro.props;
 
     <div class="h-[100px] flex items-center justify-center">
       <h3
-        class="text-white font-bold text-center text-sm sm:text-[18px] leading-[110%]"
+        class="text-white font-bold text-center text-base leading-[110%] text-balance"
       >
         {title}
       </h3>
