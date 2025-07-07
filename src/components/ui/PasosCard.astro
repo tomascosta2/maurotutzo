@@ -3,7 +3,7 @@ const { title, image, alt, number, bg, bgClass } = Astro.props;
 ---
 
 <div
-  class="bg-[#111] p-[2px] pb-0 overflow-clip relative rounded-lg h-full flex flex-col max-h-[400px] sm:max-h-[450px]"
+  class="bg-[#111] p-[2px] pb-0 overflow-clip relative rounded-lg h-full flex flex-col max-h-[400px] sm:max-h-[450px] w-full max-w-[280px] md:max-w-none mx-auto"
 >
   <div
     class="bgHardYellow -top-[30px] sm:-top-[50px] blur-xl sm:blur-2xl left-[calc(50%-40px)] sm:left-[calc(50%-50px)] size-[80px] sm:size-[100px] rounded-full absolute"
@@ -29,7 +29,7 @@ const { title, image, alt, number, bg, bgClass } = Astro.props;
     </div>
 
     <div
-      class="flex-1 flex flex-col justify-end px-2 sm:px-4 h-fit max-h-[200px]"
+      class="flex-1 flex flex-col justify-end px-2 sm:px-4 h-fit max-h-[200px] w-[220px] md:w-[236px] mx-auto"
     >
       <slot />
     </div>
