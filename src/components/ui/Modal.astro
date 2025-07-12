@@ -20,7 +20,7 @@
       <!-- Close button -->
       <button
         id="close-modal"
-        class="absolute top-4 right-4 text-white/80 hover:text-white text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors duration-200"
+        class="w-full text-white/80 hover:text-white text-2xl font-bold h-10 flex items-center justify-end rounded-full hover:bg-white/10 transition-colors duration-200"
       >
         ×
       </button>
@@ -28,7 +28,7 @@
       <!-- Modal content -->
       <div class="relative z-10">
         <h2
-          class="text-white font-extrabold text-lg sm:text-xl md:text-2xl text-center mb-2 leading-tight"
+          class="text-white font-extrabold text-xl md:text-2xl text-center mb-2 leading-tight"
         >
           INGRESA TU EMAIL Y TE CONTAMOS EL PASO A PASO
         </h2>
@@ -36,7 +36,10 @@
         <form id="consultation-form" class="mt-6 space-y-4">
           <!-- Name input -->
           <div>
-            <label for="name" class="block text-white text-sm font-medium mb-2">
+            <label
+              for="name"
+              class="block text-white text-base font-medium mb-2"
+            >
               Nombre Completo *
             </label>
             <input
@@ -53,7 +56,7 @@
           <div>
             <label
               for="email"
-              class="block text-white text-sm font-medium mb-2"
+              class="block text-white text-base font-medium mb-2"
             >
               Email *
             </label>
@@ -70,14 +73,14 @@
           <!-- Submit button -->
           <button
             type="submit"
-            class="w-full flex gap-2 items-center justify-center uppercase bgLinear font-semibold text-[#111] py-4 px-6 rounded-2xl text-sm md:text-base mt-6 hover:scale-[1.02] transition-transform duration-200"
+            class="w-full flex gap-2 items-center justify-center uppercase bgLinear font-semibold text-[#111] py-4 px-6 rounded-xl text-base mt-6 hover:scale-[1.02] transition-transform duration-200"
           >
             <span>Agendar sesión</span>
           </button>
         </form>
 
         <!-- Disclaimer -->
-        <p class="text-white/60 text-xs mt-4 leading-relaxed">
+        <p class="text-white/60 text-center text-base mt-4 leading-none">
           PD: No vendemos cursos teóricos que no funcionan, te enseñamos
           técnicas probadas de ventas remotas y te conectamos con empresas
           reales para que generes ingresos desde el primer mes.

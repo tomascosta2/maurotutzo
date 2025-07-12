@@ -5,19 +5,22 @@ import PlusIcon from "/public/svg/plus.svg";
 const faqs = [
   {
     pregunta: "¿Necesito experiencia previa?",
-    respuesta: "rpta",
+    respuesta:
+      "No, no necesitas ningún tipo de experiencia previa, de hecho la mayoría de los casos de éxito que tenemos empezaron totalmente desde 0",
   },
   {
     pregunta: "¿Necesito saber inglés?",
-    respuesta: "rpta",
+    respuesta:
+      "No, toda la información y las empresas con las que los conectamos son en habla hispana, no necesitas saber ningun otro idioma",
   },
   {
     pregunta: "¿Funciona desde cualquier país?",
-    respuesta: "rpta",
+    respuesta:
+      "Si, tenemos alumnos desde Argentina, Uruguay, Estados unidos, Venezuela, Colombia, Mexico, España y mas, podes realizarlo desde cualquier lugar del mundo",
   },
   {
     pregunta: "¿Cuanto tiempo tengo que dedicarle al día para aprenderlo?",
-    respuesta: "rpta",
+    respuesta: "Entre 2 y 3 horas diarias",
   },
 ];
 ---
@@ -33,12 +36,12 @@ const faqs = [
         <div
           class="faq-item w-full cursor-pointer p-4 sm:p-5 md:p-[20px] border-b border-b-white/50 last:border-b-0"
           data-index={index}>
-          <h3 class="faq-question font-regular text-base sm:text-lg md:text-[18px] lg:text-[20px] text-white flex justify-between items-center">
-            {item.pregunta}
-            <PlusIcon />
+          <h3 class="faq-question font-regular text-base sm:text-lg md:text-[18px] lg:text-[20px] text-white flex justify-between items-center gap-2">
+            <span class="flex-shrink-1">{item.pregunta}</span>
+            <PlusIcon class="faq-icon flex-shrink-0 md:size-[20px] transition-transform duration-300 ease-in-out" />
           </h3>
           <div class="faq-answer normal-case overflow-hidden duration-500 transition-all max-h-0">
-            <p class="text-white text-sm sm:text-base md:text-[18px] pt-3 sm:pt-[10px]">
+            <p class="text-white text-base pt-3 sm:pt-[10px]">
               {item.respuesta}
             </p>
           </div>

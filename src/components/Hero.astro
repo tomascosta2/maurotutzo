@@ -1,3 +1,7 @@
+---
+import CustomButton from "./ui/CustomButton.astro";
+---
+
 <section class="py-6 sm:py-8 md:py-[45px]">
   <img
     class="w-32 sm:w-40 md:w-[180px] mx-auto"
@@ -5,7 +9,7 @@
     alt="Sales Mastery"
   />
   <p
-    class="leading-[120%] mt-4 sm:mt-6 md:mt-8 mx-auto text-sm sm:text-base md:text-[18px] text-center max-w-[90%] sm:max-w-[500px] text-white/80 px-4"
+    class="leading-[120%] mt-4 sm:mt-6 md:mt-8 mx-auto text-base md:text-[18px] text-center max-w-[90%] sm:max-w-[500px] text-white/80 px-4"
   >
     +1.5M usd cerrados en ventas mientras vivo viajando
   </p>
@@ -45,7 +49,7 @@
     </span>
   </h1>
   <p
-    class="leading-[120%] mt-3 sm:mt-4 mx-auto text-sm sm:text-base md:text-[18px] text-center max-w-[90%] sm:max-w-[500px] text-white/80 px-4"
+    class="leading-[120%] mt-3 sm:mt-4 mx-auto text-base md:text-[18px] text-center max-w-[90%] sm:max-w-[500px] text-white/80 px-4"
   >
     Genera ingresos constantes y disfruta de la <strong
       >libertad y flexibilidad de las ventas online.</strong
@@ -55,7 +59,7 @@
     class="mt-6 sm:mt-8 bgLinear rounded-2xl sm:rounded-[18px] p-1 overflow-clip mx-auto max-w-[95%] sm:max-w-full w-full sm:w-[725px]"
   >
     <div
-      class="p-2 sm:p-3 uppercase font-bold text-[#111] text-center text-xs sm:text-sm md:text-base"
+      class="p-2 sm:p-3 uppercase font-bold text-[#111] text-center text-base"
     >
       paso 1 de 2: mira el video y aprende como lo hacemos
     </div>
@@ -64,32 +68,11 @@
     >
     </div>
   </div>
-  <p
-    class="text-center font-semibold text-white text-sm sm:text-base md:text-[18px] mb-2 mt-6 sm:mt-8"
-  >
+  <p class="text-center font-semibold text-white text-xl mb-2 mt-6 sm:mt-8">
     PASO 2 DE 2:
   </p>
-  <button
-    onclick="window.openConsultoriaModal()"
-    class="cursor-pointer flex gap-2 items-center uppercase bgLinear w-fit font-semibold text-[#111] outline-4 outline-white/30 mx-auto py-3 sm:py-4 px-6 sm:px-8 rounded-2xl sm:rounded-[16px] text-xs sm:text-sm md:text-base max-w-[90%] sm:max-w-none"
-  >
-    <span class="text-center">Agendar mi Sesión de Consultoría Gratuita</span>
-    <svg
-      width="13"
-      height="12"
-      viewBox="0 0 13 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="flex-shrink-0"
-    >
-      <path
-        d="M6.41318 11.6364L5.09499 10.3296L8.55522 6.86932H0.447266V4.94887H8.55522L5.09499 1.49432L6.41318 0.181824L12.1404 5.9091L6.41318 11.6364Z"
-        fill="#111111"></path>
-    </svg>
-  </button>
-  <p class="text-white/80 text-center mt-3 sm:mt-4 text-sm sm:text-base">
-    ¡Ultimas plazas del mes!
-  </p>
+  <CustomButton />
+
   <div
     class="mt-6 sm:mt-8 mx-auto w-fit flex flex-col sm:flex-row gap-3 sm:gap-2 items-center px-4"
   >
@@ -99,9 +82,9 @@
       class="w-20 sm:w-auto"
     />
     <p
-      class="text-white/80 max-w-[280px] sm:max-w-[220px] leading-[120%] text-center sm:text-left text-sm sm:text-base"
+      class="text-white/80 max-w-[280px] sm:max-w-[220px] leading-[120%] text-center sm:text-left text-base"
     >
-      +100 clientes ya superaron los USD 2.000 por mes
+      +50 clientes ya superaron los USD 2.000 por mes
     </p>
   </div>
 </section>

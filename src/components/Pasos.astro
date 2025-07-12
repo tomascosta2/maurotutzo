@@ -46,17 +46,19 @@ const pasosData = [
       cerrar ventas online
     </h2>
     <p
-      class="max-w-[90%] sm:max-w-[280px] text-sm sm:text-base md:text-[16px] mx-auto text-center text-white/80 leading-[120%]"
+      class="max-w-[90%] sm:max-w-[280px] text-base mx-auto text-center text-white/80 leading-[120%]"
     >
       El paso a paso que crea casos de éxito todos los meses.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8">
+    <div
+      class="flex flex-col md:grid md:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-8 items-center"
+    >
       {
         pasosData.map((paso) => (
           <PasosCard title={paso.title} number={paso.number}>
             {paso.type === "training" && (
-              <div class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-3 sm:p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-4 sm:mt-6 relative min-h-[180px] sm:min-h-[200px] overflow-clip">
+              <div class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-3 px-6 sm:p-[14px] rounded-tl-[10px] rounded-tr-[10px] mt-4 sm:mt-6 relative min-h-[180px] sm:min-h-[200px] overflow-clip h-full flex flex-col justify-center">
                 <div class="absolute z-[20] inset-0 flex items-center justify-center">
                   <div class="w-32 sm:w-[150px] h-full rounded-full bg-[rgba(255,210,0,1)] blur-[86.85px]" />
                 </div>
@@ -72,7 +74,7 @@ const pasosData = [
             )}
 
             {paso.type === "connection" && (
-              <div class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-3 sm:p-[14px] rounded-tl-[10px] rounded-tr-[10px] min-h-[180px] sm:min-h-[200px] mt-4 sm:mt-6 relative overflow-hidden">
+              <div class="bg-[linear-gradient(180deg,_#F3D444_0%,_#8D7B27_100%)] p-3 px-6 sm:p-[14px] rounded-tl-[10px] rounded-tr-[10px] min-h-[180px] sm:min-h-[200px] mt-4 sm:mt-6 relative overflow-hidden flex flex-col justify-center">
                 <div class="absolute inset-0 flex gap-1 flex-col bg-black/50 blur-[1px] py-2 sm:py-4">
                   {Array.from({ length: 5 }).map((_, rowIndex) => (
                     <div
@@ -90,7 +92,7 @@ const pasosData = [
                   <div class="size-32 sm:size-[150px] rounded-full bg-[rgba(255,210,0,0.7)] blur-[86.85px]" />
                 </div>
 
-                <div class="flex flex-col gap-3 sm:gap-4 items-center justify-center relative z-10 h-full">
+                <div class="flex flex-col gap-3 sm:gap-4 items-center justify-center relative z-10">
                   <div class="size-[45px] sm:size-[55px] rounded-full shadow-drop grid place-items-center z-10 relative border border-white/50 shadow-lg shadow-white/20 bg-[linear-gradient(180deg,_#F3D444_0%,_#FFD200_100%)]">
                     <SalesLogo />
                   </div>
@@ -110,23 +112,22 @@ const pasosData = [
 
                 <div class="flex flex-col gap-4 sm:gap-5 items-center justify-center relative z-10 h-full">
                   <div class="w-full h-full">
-                    <div class="w-full bg-[rgba(17,17,17,0.5)] rounded-[8px] leading-[110%] border border-[rgba(255,210,0,1)] text-white text-[6px] sm:text-[10px] flex items-center p-2.5 sm:p-3 py-3  whitespace-nowrap mb-3 sm:mb-4">
+                    <div class="w-full bg-[rgba(17,17,17,0.5)] rounded-[8px] leading-[110%] border border-[rgba(255,210,0,1)] text-white text-[10px] flex items-center p-2.5 sm:p-3 py-3  whitespace-nowrap mb-3 sm:mb-4">
                       <p>Resultados de nuestros closers</p>
                     </div>
                     <div class="notifications-container h-[110px] sm:h-[130px] overflow-hidden relative">
                       <div class="notifications-scroll flex flex-col gap-1.5 sm:gap-2 w-full">
                         {paso.notifications?.map((notification) => (
                           <div class="w-full">
-                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,.5)] p-2.5  text-white text-[6px] sm:text-[10px]">
+                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,.5)] p-2.5  text-white text-[10px]">
                               <notification.icon />
                               <p>{notification.text}</p>
                             </div>
                           </div>
                         ))}
-                        {/* Duplicate for seamless scrolling */}
                         {paso.notifications?.map((notification) => (
                           <div class="w-full">
-                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,1)] p-2.5 text-white text-[9px] sm:text-[10px]">
+                            <div class="w-full bg-[rgba(17,17,17,0.1)] rounded-[8px] flex flex-row gap-2 sm:gap-3 items-center border border-[rgba(255,210,0,.5)] p-2.5 text-white text-[10px]">
                               <notification.icon />
                               <p>{notification.text}</p>
                             </div>
@@ -142,11 +143,7 @@ const pasosData = [
         ))
       }
     </div>
-    <CustomButton
-      text="Agendar tu sesión de consultoría gratuita"
-      subtext="¡Ultimas plazas del mes!"
-      class="mt-8"
-    />
+    <CustomButton />
   </div>
 
   <style>
@@ -167,8 +164,8 @@ const pasosData = [
     }
 
     .bg-box {
-      width: 60px;
-      height: 20px;
+      width: 80px;
+      height: 30px;
       margin: 0 3px;
       background-color: rgba(17, 17, 17, 0.5);
       border-radius: 100px;
@@ -233,7 +230,7 @@ const pasosData = [
         oddRows.forEach((row) => {
           gsap.fromTo(
             row,
-            { x: "-50%" },
+            { x: "-25%" },
             {
               x: "0%",
               repeat: -1,
