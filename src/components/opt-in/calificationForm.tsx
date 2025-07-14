@@ -20,33 +20,33 @@ const PREGUNTAS = {
       { value: "interes-alto", label: "[Interés alto]" },
     ],
   },
-  presupuesto: {
-    label: "[¿Pregunta de presupuesto?]",
-    opciones: [
-      { value: "sin-presupuesto", label: "[Sin presupuesto]" },
-      { value: "presupuesto-bajo", label: "[Presupuesto bajo]" },
-      { value: "presupuesto-intermedio", label: "[Presupuesto intermedio]" },
-      { value: "presupuesto-alto", label: "[Presupuesto alto]" },
-    ],
-  },
-  autoridad: {
-    label: "[¿Pregunta de autoridad?]",
-    opciones: [
-      { value: "sin-autoridad", label: "[Sin autoridad]" },
-      { value: "autoridad-baja", label: "[Autoridad baja]" },
-      { value: "autoridad-intermedia", label: "[Autoridad intermedia]" },
-      { value: "autoridad-alta", label: "[Autoridad alta]" },
-    ],
-  },
-  urgencia: {
-    label: "[¿Pregunta de urgencia?]",
-    opciones: [
-      { value: "sin-urgencia", label: "[Sin urgencia]" },
-      { value: "urgencia-baja", label: "[Urgencia baja]" },
-      { value: "urgencia-intermedia", label: "[Urgencia intermedia]" },
-      { value: "urgencia-alta", label: "[Urgencia alta]" },
-    ],
-  },
+  // presupuesto: {
+  //   label: "[¿Pregunta de presupuesto?]",
+  //   opciones: [
+  //     { value: "sin-presupuesto", label: "[Sin presupuesto]" },
+  //     { value: "presupuesto-bajo", label: "[Presupuesto bajo]" },
+  //     { value: "presupuesto-intermedio", label: "[Presupuesto intermedio]" },
+  //     { value: "presupuesto-alto", label: "[Presupuesto alto]" },
+  //   ],
+  // },
+  // autoridad: {
+  //   label: "[¿Pregunta de autoridad?]",
+  //   opciones: [
+  //     { value: "sin-autoridad", label: "[Sin autoridad]" },
+  //     { value: "autoridad-baja", label: "[Autoridad baja]" },
+  //     { value: "autoridad-intermedia", label: "[Autoridad intermedia]" },
+  //     { value: "autoridad-alta", label: "[Autoridad alta]" },
+  //   ],
+  // },
+  // urgencia: {
+  //   label: "[¿Pregunta de urgencia?]",
+  //   opciones: [
+  //     { value: "sin-urgencia", label: "[Sin urgencia]" },
+  //     { value: "urgencia-baja", label: "[Urgencia baja]" },
+  //     { value: "urgencia-intermedia", label: "[Urgencia intermedia]" },
+  //     { value: "urgencia-alta", label: "[Urgencia alta]" },
+  //   ],
+  // },
 };
 
 interface IFormInput {
@@ -56,6 +56,8 @@ interface IFormInput {
   presupuesto: string;
   autoridad: string;
   urgencia: string;
+  nombre: string;
+  telefono: string;
 }
 
 interface Props {
@@ -124,23 +126,38 @@ export default function CalificationForm({ defaultEmail }: Props) {
   };
 
   const body = document.querySelector("body");
-  body?.classList.add("overflow-hidden");
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="border border-white/20 rounded-[20px] py-[55px] px-[65px] bg-[#111] max-w-[500px] max-h-[calc(100vh-80px)] overflow-y-auto">
-        <p className="mb-2">¡Último paso!</p>
-        <h2 className="mb-4 font-bold text-[24px]">
+      <div className="border border-white/20 rounded-[20px] py-[55px] px-[25px] bg-[#111] max-w-[500px] max-h-[calc(100vh-80px)] overflow-y-auto">
+        <p className="mb-2 text-white">¡Último paso!</p>
+        <h2 className="mb-4 font-bold text-[24px] text-white">
           OBTENÉ EL MÉTODO Y [LOGRO]
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Email pre-cargado */}
-          <label className="text-white block">
+          <label className="text-white block mb-2">
+            Nombre:
+            <input
+              type="text"
+              {...register("nombre", { required: "Campo requerido" })}
+              className="bg-white py-2 px-4 rounded-lg block w-full mt-2 text-[#111]/80"
+            />
+          </label>
+          <label className="text-white block mb-2">
             Correo electrónico:
             <input
               type="email"
               {...register("email", { required: "Campo requerido" })}
+              className="bg-white py-2 px-4 rounded-lg block w-full mt-2 text-[#111]/80"
+            />
+          </label>
+          <label className="text-white block">
+            Teléfono:
+            <input
+              type="tel"
+              {...register("telefono", { required: "Campo requerido" })}
               className="bg-white py-2 px-4 rounded-lg block w-full mt-2 text-[#111]/80"
             />
           </label>
@@ -174,8 +191,22 @@ export default function CalificationForm({ defaultEmail }: Props) {
             );
           })}
 
-          <button type="submit" className="mt-8 cf-btn">
-            CTA
+          <button
+            type="submit"
+            className="cursor-pointer flex gap-2 mt-6  uppercase bgLinear  font-semibold text-[#111] outline-4 outline-white/30 mx-auto py-3 sm:py-4 px-6 sm:px-8 rounded-2xl sm:rounded-[16px] text-base max-w-[300px] sm:max-w-none w-full text-center items-center justify-center">
+            <span className="text-center">Enviar</span>
+            <svg
+              width="13"
+              height="12"
+              viewBox="0 0 13 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="flex-shrink-0">
+              <path
+                d="M6.41318 11.6364L5.09499 10.3296L8.55522 6.86932H0.447266V4.94887H8.55522L5.09499 1.49432L6.41318 0.181824L12.1404 5.9091L6.41318 11.6364Z"
+                fill="#111111"
+              />
+            </svg>
           </button>
           <p className="text-white/80 mt-4">PD: Manejar objeción principal</p>
         </form>

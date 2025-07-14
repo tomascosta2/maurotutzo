@@ -74,7 +74,7 @@ import CalificationForm from "./opt-in/calificationForm";
   </p>
   <CustomButton class="open-form" />
   <div class="calification-form hidden">
-    <CalificationForm client:only="react" defaultEmail="" />
+    <CalificationForm client:only="react" defaultEmail="benja" />
   </div>
 
   <div
@@ -94,7 +94,12 @@ import CalificationForm from "./opt-in/calificationForm";
 </section>
 
 <script>
-  document.querySelector(".open-form")?.addEventListener("click", () => {
-    document.querySelector(".calification-form")?.classList.remove("hidden");
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.querySelector(".open-form");
+    const form = document.querySelector(".calification-form");
+
+    button?.addEventListener("click", () => {
+      form?.classList.toggle("hidden");
+    });
   });
 </script>

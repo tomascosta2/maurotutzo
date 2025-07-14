@@ -2,13 +2,14 @@
 const {
   text = "Agendar mi sesión de consultoría gratuita",
   subtext = "¡Ultimas plazas del mes!",
+  class: className,
+  type = "button",
 } = Astro.props;
 ---
 
 <>
   <button
-    onclick="window.openConsultoriaModal()"
-    class="cursor-pointer flex gap-2 mt-6 items-center uppercase bgLinear w-fit font-semibold text-[#111] outline-4 outline-white/30 mx-auto py-3 sm:py-4 px-6 sm:px-8 rounded-2xl sm:rounded-[16px] text-base max-w-[90%] sm:max-w-none"
+    class={`cursor-pointer flex gap-2 mt-6 items-center uppercase bgLinear w-fit font-semibold text-[#111] outline-4 outline-white/30 mx-auto py-3 sm:py-4 px-6 sm:px-8 rounded-2xl sm:rounded-[16px] text-base max-w-[90%] sm:max-w-none ${className || ""}`}
   >
     <span class="text-center">{text}</span>
     <svg
