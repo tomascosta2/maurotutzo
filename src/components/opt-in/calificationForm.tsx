@@ -106,27 +106,30 @@ export default function CalificationForm({ defaultEmail }: Props) {
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Email pre-cargado */}
           <label className="text-white block mb-4">
-            Nombre:
+            Nombre *
             <input
               type="text"
               {...register("nombre", { required: "Campo requerido" })}
               className="bg-white py-2 px-4 rounded-lg block w-full mt-2 text-[#111]/80"
+              placeholder="Nombre"
             />
           </label>
           <label className="text-white block mb-4">
-            Correo electrónico:
+            Correo electrónico *
             <input
               type="email"
               {...register("email", { required: "Campo requerido" })}
               className="bg-white py-2 px-4 rounded-lg block w-full mt-2 text-[#111]/80"
+              placeholder="Correo electrónico"
             />
           </label>
           <label className="text-white block">
-            Teléfono:
+            Teléfono *
             <input
               type="tel"
               {...register("telefono", { required: "Campo requerido" })}
               className="bg-white py-2 px-4 rounded-lg block w-full mt-2 text-[#111]/80"
+              placeholder="Teléfono"
             />
           </label>
 
