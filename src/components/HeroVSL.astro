@@ -3,7 +3,7 @@ import CustomButton from "./ui/CustomButton.astro";
 import CalificationForm from "./opt-in/calificationForm";
 ---
 
-<section class="py-6 sm:py-8 md:py-[45px]">
+<section class="py-6 sm:py-8 md:pt-[45px] md:pb-[80px]">
   <img
     class="w-32 sm:w-40 md:w-[180px] mx-auto"
     src="/images/sales-mastery-logo.png"
@@ -56,25 +56,42 @@ import CalificationForm from "./opt-in/calificationForm";
       >libertad y flexibilidad de las ventas online.</strong
     >
   </p>
-  <div
-    class="mt-6 sm:mt-8 bgLinear rounded-2xl sm:rounded-[18px] p-1 overflow-clip mx-auto max-w-[95%] sm:max-w-full w-full sm:w-[725px]"
-  >
+
+  <div class="open-form">
     <div
-      class="p-2 sm:p-3 uppercase font-bold text-[#111] text-center text-base"
+      class="mt-6 sm:mt-8 bgLinear cursor-pointer rounded-2xl sm:rounded-[18px] p-1 overflow-clip mx-auto max-w-[95%] sm:max-w-full w-full sm:w-[725px]"
     >
-      paso 1 de 2: mira el video y aprende como lo hacemos
+      <div
+        class="p-2 sm:p-3 uppercase font-bold text-[#111] text-center text-base"
+      >
+        Mira el video y aprende como lo hacemos
+      </div>
+      <div
+        class="bg-gray-300 rounded-br-[14px] rounded-bl-[14px] w-full aspect-video"
+      >
+      </div>
     </div>
-    <div
-      class="bg-gray-300 rounded-br-[14px] rounded-bl-[14px] w-full aspect-video"
+    <button
+      class={`cursor-pointer flex gap-2 mt-6 items-center uppercase bgLinear w-fit font-semibold text-[#111] outline-4 outline-white/30 mx-auto py-3 sm:py-4 px-6 sm:px-8 rounded-2xl sm:rounded-[16px] text-base max-w-full sm:max-w-none`}
     >
-    </div>
+      <span class="text-center">QUIERO VER COMO FUNCIONA</span>
+      <svg
+        width="13"
+        height="12"
+        viewBox="0 0 13 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="flex-shrink-0"
+      >
+        <path
+          d="M6.41318 11.6364L5.09499 10.3296L8.55522 6.86932H0.447266V4.94887H8.55522L5.09499 1.49432L6.41318 0.181824L12.1404 5.9091L6.41318 11.6364Z"
+          fill="#111111"></path>
+      </svg>
+    </button>
   </div>
-  <p class="text-center font-semibold text-white text-xl mb-2 mt-6 sm:mt-8">
-    PASO 2 DE 2:
-  </p>
-  <CustomButton class="open-form" />
+
   <div class="calification-form hidden">
-    <CalificationForm client:only="react" defaultEmail="benja" />
+    <CalificationForm client:only="react" defaultEmail="" />
   </div>
 
   <div
